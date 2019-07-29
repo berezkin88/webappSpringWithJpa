@@ -25,6 +25,15 @@ public class Order {
 	@Column(name = "cartid")
 	private Long cartId;
 
+	public Order() {
+	}
+
+	public Order(Long productId, int quantity, Long cartId) {
+		this.productId = productId;
+		this.quantity = quantity;
+		this.cartId = cartId;
+	}
+
 	public Long getProductId() {
 		return productId;
 	}
