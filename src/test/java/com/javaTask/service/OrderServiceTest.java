@@ -27,11 +27,6 @@ public class OrderServiceTest {
     @Autowired
     private OrderRepository orderRepository;
 
-    @Before
-    public void cleanUpDB() {
-        entityManager.clear();
-    }
-
     @Test
     public void testFindAll() {
         Order order1 = new Order(111l, 1, 11l);

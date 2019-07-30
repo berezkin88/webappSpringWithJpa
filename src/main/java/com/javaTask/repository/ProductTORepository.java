@@ -14,10 +14,10 @@ import java.util.List;
 
 public interface ProductTORepository extends JpaRepository<ProductTO, Long> {
 
-    @Query(value = "select p.title, o.quantity, p.price, o.id from Product p join Order o on p.id=o.productId where o.cartId = :cartId")
+    @Query(value = "select new ProductTO(p.title, o.quantity, p.price, o.id) from Product p join Order o on p.id=o.productId where o.cartId = :cartId")
     List<ProductTO> getAllProductsByCartId(@Param("cartId") Long cartId);
 
-    @Query(value = "select p.title, o.quantity, p.price, o.id from Product p join Order o on p.id=o.productId join Cart c on o.cartId=c.id where c.userId = :userId " +
-            "and timestamp between :from and :till and c.status = :status")
-    List<ProductTO> getProductsHistoryByTimeAndUserId(@Param("userId") Long userId, @Param("from") long from, @Param("till") long till, @Param("status") Status status);
+    @Query(value = "select new ProductTO(p.title, o.quantity, p.price, o.id) from Product p join Order o on p.id=o.productId join Cart c on o.cartId=c.id where c.userId = :userId " +
+            "and timestamp between :from and :till")
+    List<ProductTO> getProductsHistoryByTimeAndUserId(@Param("userId") Long userId, @Param("from") long from, @Param("till") long till);
 }

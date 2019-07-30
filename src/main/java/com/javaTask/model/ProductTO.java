@@ -21,6 +21,17 @@ public class ProductTO {
     private double price;
     private Long orderId;
 
+    public ProductTO() {
+    }
+
+    public ProductTO(/*Long id,*/ String title, int quantity, double price, Long orderId) {
+//        this.id = id;
+        this.title = title;
+        this.quantity = quantity;
+        this.price = price;
+        this.orderId = orderId;
+    }
+
     public Long getId() {
         return id;
     }

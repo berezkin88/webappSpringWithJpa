@@ -28,11 +28,6 @@ public class CartServiceTest {
     @Autowired
     private CartRepository cartRepository;
 
-    @Before
-    public void cleanUpDB() {
-        entityManager.clear();
-    }
-
     @Test
     public void testFindAll() {
         Cart cart1 = new Cart(11l, Status.OPEN, System.currentTimeMillis());

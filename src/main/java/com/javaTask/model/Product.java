@@ -27,6 +27,12 @@ public class Product {
 	
 	public Product() {}
 
+	public Product(String title, double price, String description) {
+		this.title = title;
+		this.price = price;
+		this.description = description;
+	}
+
 	public Long getId() {
 		return id;
 	}

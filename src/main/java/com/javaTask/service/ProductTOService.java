@@ -25,6 +25,6 @@ public class ProductTOService {
     }
 
     public List<ProductTO> getProductsHistoryByTimeAndUserId(Long userId, long from, long till) {
-        return productTORepository.getProductsHistoryByTimeAndUserId(userId, from, till, Status.CLOSED);
+        return productTORepository.getProductsHistoryByTimeAndUserId(userId, from, till);
     }
 }

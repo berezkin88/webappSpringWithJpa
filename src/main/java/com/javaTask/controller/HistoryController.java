@@ -54,7 +54,7 @@ public class HistoryController {
             return new ResponseEntity<String>(headers, HttpStatus.FOUND);
         }
 
-        List<ProductTO> results = productTORepository.getProductsHistoryByTimeAndUserId(userId, timeFrom, timeTill, Status.CLOSED);
+        List<ProductTO> results = productTORepository.getProductsHistoryByTimeAndUserId(userId, timeFrom, timeTill);
 
         response.put("userId", userId);
         response.put("cartId", cartId);
