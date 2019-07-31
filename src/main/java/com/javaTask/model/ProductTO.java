@@ -87,4 +87,15 @@ public class ProductTO {
     public int hashCode() {
         return Objects.hash(title, quantity, price, orderId);
     }
+
+    @Override
+    public String toString() {
+        return "ProductTO{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", quantity=" + quantity +
+                ", price=" + price +
+                ", orderId=" + orderId +
+                '}';
+    }
 }
