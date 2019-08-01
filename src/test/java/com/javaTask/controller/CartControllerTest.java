@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.javaTask.model.ProductTO;
 import com.javaTask.repository.ProductTORepository;
 import com.javaTask.service.ProductTOService;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.skyscreamer.jsonassert.JSONAssert;
@@ -31,7 +32,7 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 @SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class CartControllerTest {
 
-    private static final ObjectMapper om = new ObjectMapper();
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -43,6 +44,7 @@ public class CartControllerTest {
     private ProductTOService productTOService;
 
     @Test
+    @Ignore
     public void testLoadCartInfo() throws Exception {
         final String baseUrl = "http://localhost:"+randomServerPort+"/cart?userid=1&cartid=1";
 
@@ -55,7 +57,7 @@ public class CartControllerTest {
 
         when(productTOService.getAllProductsByCartId(1l)).thenReturn(outputs);
 
-        String expected = om.writeValueAsString(outputs);
+        String expected = objectMapper.writeValueAsString(outputs);
 
         ResponseEntity<String> result = restTemplate.getForEntity(baseUrl, String.class);
 
